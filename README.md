@@ -1,3 +1,14 @@
+# collaborative-editor
+
+A proof-of-concept collaborative editor based on tiptap and yjs.
+
+Set the REACT_APP_YJS_WEBSOCKET_SERVER_URL environment variable before 
+starting; for example:
+
+```
+REACT_APP_YJS_WEBSOCKET_SERVER_URL=ws://example.com:9999 npm start
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
