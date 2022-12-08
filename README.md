@@ -2,10 +2,18 @@
 
 A proof-of-concept collaborative editor based on tiptap and yjs.
 
+Start a Yjs websocket server:
+```
+cd collaborative-editor
+npm install
+PORT=9999 HOST=0.0.0.0 npx y-websocket
+```
+
 Set the REACT_APP_YJS_WEBSOCKET_SERVER_URL environment variable before 
-starting; for example:
+starting the npm dev server; for example:
 
 ```
+cd collaborative-editor
 REACT_APP_YJS_WEBSOCKET_SERVER_URL=ws://example.com:9999 npm start
 ```
 
