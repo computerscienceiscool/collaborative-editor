@@ -2,7 +2,9 @@
 
 A proof-of-concept collaborative editor based on tiptap and yjs.
 
-Start a Yjs websocket server:
+## Manual start/stop
+
+Start a Yjs websocket server :
 ```
 cd collaborative-editor
 npm install
@@ -16,6 +18,43 @@ starting the npm dev server; for example:
 cd collaborative-editor
 REACT_APP_YJS_WEBSOCKET_SERVER_URL=ws://example.com:9999 npm start
 ```
+
+## Makefile start/stop
+
+### Starting just plain tiptap (plus toolbar and Yjs bits)
+
+This will fail if for some reason there are still some daemons running from a
+previous execution of tiptap or toygrid.  You will need to kill those processes
+manually if so.
+
+```
+cd ~/lab/tiptap/collaborative-editor  # or wherever you've cloned this repo
+make
+```
+
+This will start the Yjs server (y-websocket) and a crapload of node processes,
+all of which you can see by saying `ps -af`.
+
+The editor app is a node process listening on port 3000, reachable at e.g.
+http://europa.d4.t7a.org:3000/, which you can see at `netstat -tulpn`
+
+You'll also see the Yjs server (that syncs editor keystrokes) listening on port
+3099.  It  will just say "okay" if you go to e.g. http://europa.d4.t7a.org:3099/ in
+a browser.  (The editor uses a complex API to talk to the Yjs server).
+
+### Stopping just plain tiptap (plus toolbar and Yjs bits)
+
+- hit ^C
+
+This will kill all of the server processes, which you can verify with:
+
+```
+ps -af
+netstat -tulpn
+```
+
+
+
 
 # Getting Started with Create React App
 
